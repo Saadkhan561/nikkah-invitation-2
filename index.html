@@ -1,0 +1,1183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Nabia &amp; Saad: The Blossoming Tree</title>
+    <meta
+      name="description"
+      content="Grow Nabia and Saad's story, one commit at a time, and join them for their nikkah."
+    />
+    <meta name="theme-color" content="#eef6f1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Manrope:wght@400;500;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #1f3a31;
+        --dim: #46645a;
+        --rose: #e8758f;
+        --gold: #8a6420;
+        --plum: #8a3b52;
+        --serif: "Playfair Display", "Noto Naskh Arabic", Georgia, serif;
+        --sans: "Manrope", "Noto Naskh Arabic", system-ui, sans-serif;
+        box-sizing: border-box;
+        color-scheme: light;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        overflow: hidden;
+        color: var(--ink);
+        font: 400 1rem/1.55 var(--sans);
+        background: radial-gradient(
+          circle at 50% 0,
+          #fff,
+          #eef6f1 60%,
+          #e1efe7
+        );
+      }
+      h1,
+      h2,
+      p,
+      ol {
+        margin: 0;
+      }
+      :focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 3px;
+      }
+      button {
+        font: inherit;
+        color: inherit;
+      }
+      .btn {
+        font: 700 0.95rem var(--sans);
+        letter-spacing: 0.03em;
+        color: #fff;
+        background: var(--ink);
+        border: 0;
+        border-radius: 99px;
+        padding: 13px 30px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition:
+          transform 0.15s,
+          opacity 0.4s;
+      }
+      .btn:active {
+        transform: scale(0.97);
+      }
+      .btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+      .btn.alt {
+        background: none;
+        color: var(--ink);
+        box-shadow: inset 0 0 0 1.5px var(--ink);
+      }
+      .btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+      }
+
+      /* intro */
+      #intro {
+        position: fixed;
+        inset: 0;
+        z-index: 40;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 24px;
+        text-align: center;
+        background: radial-gradient(
+          circle at 50% 0,
+          #fff,
+          #eef6f1 60%,
+          #e1efe7
+        );
+        transition:
+          opacity 1s,
+          transform 1s,
+          visibility 0s 1s;
+      }
+      #intro.gone {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.06);
+      }
+      #intro > * {
+        animation: rise 1s both;
+      }
+      #intro > :nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      #intro > :nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      #intro > :nth-child(4) {
+        animation-delay: 0.45s;
+      }
+      #intro > :nth-child(5) {
+        animation-delay: 0.6s;
+      }
+      .ar {
+        font: 700 1.5rem var(--serif);
+        color: var(--gold);
+        direction: rtl;
+      }
+      .nm {
+        font: italic 500 clamp(3.2rem, 16vw, 5.8rem)/1 var(--serif);
+      }
+      .nm b {
+        font: 500 0.5em var(--serif);
+        color: var(--gold);
+      }
+      .sub {
+        color: var(--dim);
+        max-width: 36ch;
+      }
+      code {
+        font:
+          700 0.85rem ui-monospace,
+          Menlo,
+          monospace;
+      }
+
+      /* stage */
+      .stage {
+        position: fixed;
+        inset: 0;
+        max-width: 520px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+      .hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px 0;
+      }
+      .hd span {
+        font: italic 500 1.2rem var(--serif);
+      }
+      .dots {
+        display: flex;
+        gap: 7px;
+      }
+      .dots i {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 1.5px var(--ink);
+        transition: 0.5s;
+      }
+      .dots i.ok {
+        background: var(--rose);
+        box-shadow: none;
+      }
+      .dots i.cur {
+        background: var(--gold);
+        box-shadow: none;
+        transform: scale(1.4);
+      }
+      .tree {
+        flex: 1 1 0;
+        min-height: 0;
+        display: flex;
+        justify-content: center;
+        padding: 6px 10px 0;
+      }
+      .tree svg {
+        height: 100%;
+        width: auto;
+        max-width: 100%;
+        overflow: visible;
+      }
+      .br {
+        fill: none;
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-dasharray: 1;
+      }
+      .br.a {
+        stroke: var(--ink);
+        stroke-dashoffset: calc(1 - var(--pa, 0));
+        transition: stroke-dashoffset 0.3s linear;
+      }
+      .br.b {
+        stroke: var(--plum);
+        stroke-dashoffset: calc(1 - var(--pb, 0));
+        transition: stroke-dashoffset 0.3s linear;
+      }
+      .br.t {
+        stroke: var(--ink);
+        stroke-dashoffset: calc(1 - var(--pt, 0));
+        transition: stroke-dashoffset 2.4s ease-in-out;
+      }
+      .nd {
+        transform-box: fill-box;
+        transform-origin: center;
+        transform: scale(0);
+        transition: transform 0.8s cubic-bezier(0.2, 1.6, 0.4, 1);
+      }
+      .nd.on {
+        transform: scale(1);
+      }
+      .nd text {
+        font: 700 11px var(--sans);
+        fill: var(--ink);
+      }
+      .nd.nb text {
+        fill: var(--plum);
+      }
+      .ml {
+        font: 700 12px var(--sans);
+        fill: var(--gold);
+        opacity: 0;
+        transition: opacity 1.5s 1.2s;
+      }
+      .mrg .ml {
+        opacity: 1;
+      }
+
+      /* flower */
+      .pt {
+        transform-box: fill-box;
+        transform-origin: 50% 100%;
+        transform: scale(0);
+        transition: transform 1.2s cubic-bezier(0.2, 1.5, 0.4, 1) var(--d, 0s);
+      }
+      .pt.c {
+        transform-origin: 50% 50%;
+      }
+      .fl.b .pt {
+        transform: scale(1);
+      }
+      .bud {
+        transform-box: fill-box;
+        transform-origin: 50% 50%;
+        transition:
+          transform 0.7s,
+          opacity 0.7s;
+      }
+      .fl:not(.b) .bud {
+        animation: pu 1.6s ease-in-out infinite;
+      }
+      .fl.b .bud {
+        opacity: 0;
+        transform: scale(2.4);
+      }
+      @keyframes pu {
+        50% {
+          transform: scale(1.2);
+        }
+      }
+      .fl.b .sp {
+        animation: spin 40s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      svg.fl.b {
+        animation: sway 5s ease-in-out infinite;
+      }
+      @keyframes sway {
+        50% {
+          transform: rotate(4deg);
+        }
+      }
+      .fb {
+        background: none;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        line-height: 0;
+      }
+
+      /* sheet */
+      .sheet {
+        background: #fff;
+        border-radius: 26px 26px 0 0;
+        box-shadow: 0 -10px 40px rgba(31, 58, 49, 0.12);
+        padding: 20px 22px calc(18px + env(safe-area-inset-bottom, 0px));
+        max-height: 50svh;
+        overflow-y: auto;
+        flex: 0 0 auto;
+      }
+      .pn {
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        align-items: center;
+      }
+      .pn.act {
+        display: flex;
+        animation: rise 0.7s both;
+      }
+      h2 {
+        font: italic 500 1.7rem/1.1 var(--serif);
+      }
+      .log {
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        text-align: left;
+        font-size: 0.9rem;
+        min-height: 4.8em;
+      }
+      .log li {
+        opacity: 0;
+        transform: translateX(-10px);
+        transition: 0.6s;
+        padding: 2px 0;
+      }
+      .log li.on {
+        opacity: 1;
+        transform: none;
+      }
+      .log b {
+        font:
+          700 0.82rem ui-monospace,
+          Menlo,
+          monospace;
+        color: var(--gold);
+      }
+      .log.pb b {
+        color: var(--plum);
+      }
+      input[type="range"] {
+        width: 100%;
+        accent-color: var(--ink);
+        height: 34px;
+      }
+      .hold {
+        position: relative;
+        width: 112px;
+        height: 112px;
+        border-radius: 50%;
+        border: 0;
+        background: #eef6f1;
+        cursor: pointer;
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+        font: 700 0.85rem var(--sans);
+        letter-spacing: 0.06em;
+      }
+      .hold svg {
+        position: absolute;
+        inset: 0;
+        transform: rotate(-90deg);
+      }
+      .ring {
+        fill: none;
+        stroke: var(--rose);
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-dasharray: 314;
+        stroke-dashoffset: 314;
+      }
+      .rev {
+        opacity: 0;
+        transform: translateY(12px);
+        transition:
+          opacity 1s,
+          transform 1s;
+        font: italic 500 1.1rem/1.4 var(--serif);
+      }
+      .rev.show {
+        opacity: 1;
+        transform: none;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        width: 100%;
+      }
+      .bd {
+        flex: 1;
+        max-width: 140px;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        padding: 2px;
+      }
+      .bd b {
+        font: italic 500 1.05rem var(--serif);
+      }
+      .bd span {
+        font-size: 0.8rem;
+        color: var(--dim);
+        opacity: 0;
+        transition: 0.8s 0.4s;
+        min-height: 2.6em;
+      }
+      .bd.o span {
+        opacity: 1;
+      }
+      .ara {
+        font: 700 1.4rem/1.8 var(--serif);
+        direction: rtl;
+      }
+      textarea,
+      input[type="text"] {
+        font: 400 1rem var(--sans);
+        width: 100%;
+        padding: 11px 16px;
+        border: 0;
+        border-radius: 14px;
+        background: #eef6f1;
+        color: var(--ink);
+        resize: none;
+      }
+      input[type="text"] {
+        border-radius: 99px;
+        text-align: center;
+      }
+      .dz {
+        position: relative;
+        width: 100%;
+      }
+      .fy {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        font: italic 500 1.2rem var(--serif);
+        color: var(--plum);
+        animation: fup 3s ease-out forwards;
+        pointer-events: none;
+      }
+      @keyframes fup {
+        to {
+          transform: translateY(-90px);
+          opacity: 0;
+        }
+      }
+      .chip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
+      .chip label {
+        cursor: pointer;
+      }
+      .chip input {
+        position: absolute;
+        opacity: 0;
+      }
+      .chip span {
+        display: block;
+        padding: 9px 18px;
+        border-radius: 99px;
+        box-shadow: inset 0 0 0 1.5px var(--ink);
+        font-size: 0.9rem;
+        transition: 0.25s;
+      }
+      .chip input:checked + span {
+        background: var(--ink);
+        color: #fff;
+      }
+      .chip input:focus-visible + span {
+        outline: 2px solid var(--gold);
+        outline-offset: 3px;
+      }
+      .st {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font: 500 1.4rem var(--serif);
+      }
+      .st button {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 0;
+        background: #eef6f1;
+        cursor: pointer;
+        font-size: 1.2rem;
+      }
+      .pe {
+        position: fixed;
+        top: -6vh;
+        z-index: 30;
+        border-radius: 80% 0 80% 20%;
+        opacity: 0.8;
+        pointer-events: none;
+        animation-name: fall;
+        animation-timing-function: linear;
+      }
+      @keyframes fall {
+        0% {
+          transform: translate(0, 0) rotate(0);
+        }
+        50% {
+          transform: translate(var(--sw), 55vh) rotate(200deg);
+        }
+        100% {
+          transform: translate(calc(var(--sw) * -0.5), 112vh) rotate(420deg);
+        }
+      }
+      .toast {
+        position: fixed;
+        left: 50%;
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 80px);
+        transform: translate(-50%, 30px);
+        background: var(--ink);
+        color: #fff;
+        font-size: 0.88rem;
+        padding: 10px 18px;
+        border-radius: 99px;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.25s;
+        z-index: 60;
+      }
+      .toast.on {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .fl.b .sp,
+        svg.fl.b,
+        .fl:not(.b) .bud {
+          animation: none;
+        }
+        .pt,
+        .nd,
+        .br {
+          transition-duration: 0.01s;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="pet" aria-hidden="true"></div>
+
+    <section id="intro">
+      <p class="ar" lang="ar">بسم الله الرحمن الرحيم</p>
+      <div id="ibud" aria-hidden="true"></div>
+      <h1 class="nm">Nabia <b>&amp;</b> Saad</h1>
+      <p class="sub">
+        invite you to their nikkah. Grow their story one commit at a time, and
+        watch it bloom.
+      </p>
+      <button class="btn" id="go"><code>git init</code></button>
+    </section>
+
+    <main class="stage">
+      <div class="hd">
+        <span>Nabia &amp; Saad</span>
+        <div class="dots" id="dots" aria-hidden="true"></div>
+      </div>
+      <div class="tree">
+        <svg
+          id="svg"
+          viewBox="0 0 342 480"
+          role="img"
+          aria-label="A tree with two branches, Saad’s and Nabia’s, growing together into one trunk, with a flower at each commit"
+        >
+          <defs>
+            <symbol id="f" viewBox="-12 -12 24 24">
+              <g fill="#e8758f">
+                <circle cx="0" cy="-6" r="5" />
+                <circle cx="6" cy="-2" r="5" />
+                <circle cx="4" cy="5" r="5" />
+                <circle cx="-4" cy="5" r="5" />
+                <circle cx="-6" cy="-2" r="5" />
+              </g>
+              <circle r="3.5" fill="#e0aa3e" />
+            </symbol>
+          </defs>
+          <path
+            class="br a"
+            pathLength="1"
+            d="M70 40C60 70 85 100 80 150C70 260 171 250 171 330"
+          />
+          <path
+            class="br b"
+            pathLength="1"
+            d="M280 50C290 80 265 110 270 160C280 260 171 250 171 330"
+          />
+          <path class="br t" pathLength="1" d="M171 330V480" />
+          <g class="nd" data-b="a" data-t="3">
+            <use href="#f" x="58" y="28" width="24" height="24" />
+            <text x="84" y="44">init</text>
+          </g>
+          <g class="nd" data-b="a" data-t="45">
+            <use href="#f" x="68" y="138" width="24" height="24" />
+            <text x="94" y="154">feat</text>
+          </g>
+          <g class="nd" data-b="a" data-t="75">
+            <use href="#f" x="110" y="239" width="24" height="24" />
+            <text x="136" y="255">docs</text>
+          </g>
+          <g class="nd nb" data-b="b" data-t="3">
+            <use href="#f" x="268" y="38" width="24" height="24" />
+            <text x="264" y="54" text-anchor="end">test</text>
+          </g>
+          <g class="nd nb" data-b="b" data-t="45">
+            <use href="#f" x="258" y="148" width="24" height="24" />
+            <text x="254" y="164" text-anchor="end">fix</text>
+          </g>
+          <g class="nd nb" data-b="b" data-t="75">
+            <use href="#f" x="212" y="239" width="24" height="24" />
+            <text x="208" y="255" text-anchor="end">review</text>
+          </g>
+          <g id="mf" class="fl" transform="translate(171 330) scale(.7)"></g>
+          <text class="ml" x="171" y="410" text-anchor="middle">
+            merge: nikkah
+          </text>
+        </svg>
+      </div>
+
+      <div class="sheet">
+        <section class="pn" id="p1">
+          <h2>Saad’s branch</h2>
+          <p class="sub">Saad writes the code. Drag to push his commits.</p>
+          <input
+            type="range"
+            id="ra"
+            min="0"
+            max="100"
+            value="0"
+            aria-label="Grow Saad’s branch"
+          />
+          <ol class="log" id="la">
+            <li><b>init</b> hello, world</li>
+            <li><b>feat</b> learned to listen first</li>
+            <li><b>docs</b> wrote down his promises</li>
+          </ol>
+          <button class="btn nx" disabled>Next: Nabia’s branch</button>
+        </section>
+        <section class="pn" id="p2">
+          <h2>Nabia’s branch</h2>
+          <p class="sub">Nabia tests everything. Drag to run her tests.</p>
+          <input
+            type="range"
+            id="rb"
+            min="0"
+            max="100"
+            value="0"
+            aria-label="Grow Nabia’s branch"
+          />
+          <ol class="log pb" id="lb">
+            <li><b>test</b> broke all his assumptions</li>
+            <li><b>fix</b> said yes, alhamdulillah</li>
+            <li><b>review</b> approved with a smile</li>
+          </ol>
+          <button class="btn nx" disabled>Next: the merge</button>
+        </section>
+        <section class="pn" id="p3">
+          <h2>git merge nikkah</h2>
+          <p class="sub">Press and hold to merge the two branches.</p>
+          <button class="hold" id="hold" aria-label="Press and hold to merge">
+            HOLD<svg
+              width="112"
+              height="112"
+              viewBox="0 0 112 112"
+              aria-hidden="true"
+            >
+              <circle class="ring" id="ring" cx="56" cy="56" r="50" />
+            </svg>
+          </button>
+          <p class="rev" id="vs">
+            Merged with no conflicts, alhamdulillah.<br />“…and He placed
+            between you love and mercy.”
+            <small style="font: 600 0.7rem var(--sans); color: var(--gold)"
+              >QUR’AN 30:21 (MEANING)</small
+            >
+          </p>
+          <button class="btn nx" disabled>Next: the details</button>
+        </section>
+        <section class="pn" id="p4">
+          <h2>Open each bud</h2>
+          <div class="row" id="row">
+            <button class="bd">
+              <i class="fb" style="display: block"></i><b>When</b
+              ><span>Saturday,<br />DD Month 2026</span>
+            </button>
+            <button class="bd">
+              <i class="fb" style="display: block"></i><b>Time</b
+              ><span>00:00 PM</span>
+            </button>
+            <button class="bd">
+              <i class="fb" style="display: block"></i><b>Where</b
+              ><span>Venue name,<br />City</span>
+            </button>
+          </div>
+          <button class="btn nx" disabled>Next: leave a dua</button>
+        </section>
+        <section class="pn" id="p5">
+          <h2>Leave a dua</h2>
+          <p class="ara" lang="ar">
+            بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا
+            فِي خَيْرٍ
+          </p>
+          <div class="dz" id="dz">
+            <textarea
+              id="dt"
+              rows="2"
+              maxlength="120"
+              placeholder="Write your own dua for them…"
+              aria-label="Your dua"
+            ></textarea>
+          </div>
+          <p class="sub" id="dc" style="font-size: 0.85rem" aria-live="polite">
+            Stays on your device. Only Allah reads it.
+          </p>
+          <div class="btns">
+            <button class="btn alt" id="dr">Release dua</button
+            ><button class="btn nx" disabled>Next: join us</button>
+          </div>
+        </section>
+        <section class="pn" id="p6">
+          <h2>Will you join us?</h2>
+          <p class="sub">
+            “The best of you are those who are best to their families.”
+          </p>
+          <div class="chip">
+            <label
+              ><input
+                type="radio"
+                name="r"
+                value="I’ll be there in person, inshā’Allāh"
+                checked
+              /><span>I’ll be there</span></label
+            ><label
+              ><input
+                type="radio"
+                name="r"
+                value="I’ll be with you in dua, but can’t attend"
+              /><span>With you in dua</span></label
+            >
+          </div>
+          <div class="st" id="stp">
+            <button id="gm" aria-label="Fewer guests">−</button
+            ><span
+              ><b id="gc">1</b>
+              <small style="font: 400 0.8rem var(--sans)">guest(s)</small></span
+            ><button id="gp" aria-label="More guests">+</button>
+          </div>
+          <input
+            type="text"
+            id="rn"
+            maxlength="30"
+            placeholder="Your name"
+            aria-label="Your name"
+          />
+          <div class="btns">
+            <a class="btn" id="rv" href="#" target="_blank" rel="noopener"
+              >Send RSVP on WhatsApp</a
+            >
+          </div>
+          <div class="btns">
+            <button class="btn alt" id="sh">Share</button
+            ><a class="btn alt" id="wa" href="#" target="_blank" rel="noopener"
+              >WhatsApp</a
+            ><button class="btn alt" id="cp">Copy link</button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      (function () {
+        var $ = function (s, r) {
+            return (r || document).querySelector(s);
+          },
+          A = function (s, r) {
+            return [].slice.call((r || document).querySelectorAll(s));
+          };
+        var SITE_URL = ""; /* your live link, so sharing works from anywhere */
+        var WA_NUMBER =
+          ""; /* digits only, e.g. '923001234567', to send RSVPs straight to the couple */
+        var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var PAL = [
+            ["#e8758f", "#ffc2d1"],
+            ["#ffa877", "#ffd9bd"],
+            ["#a98bf0", "#d7c8ff"],
+            ["#fffdf8", "#f3dfb8"],
+          ],
+          PC = ["#f2849e", "#ffb08a", "#cdb9ff", "#fff", "#f7d27a"];
+        var toast = $("#toast"),
+          tm;
+        function say(m) {
+          toast.textContent = m;
+          toast.classList.add("on");
+          clearTimeout(tm);
+          tm = setTimeout(function () {
+            toast.classList.remove("on");
+          }, 2400);
+        }
+        function F(a, b) {
+          var s = '<circle class="bud" r="13" fill="#7fb69a"/>',
+            i;
+          for (i = 0; i < 8; i++)
+            s +=
+              '<g transform="rotate(' +
+              i * 45 +
+              ')"><ellipse class="pt" style="--d:' +
+              i * 70 +
+              'ms" cx="0" cy="-30" rx="13" ry="30" fill="' +
+              a +
+              '" stroke="rgba(0,0,0,.07)"/></g>';
+          for (i = 0; i < 8; i++)
+            s +=
+              '<g transform="rotate(' +
+              (i * 45 + 22.5) +
+              ')"><ellipse class="pt" style="--d:' +
+              (560 + i * 50) +
+              'ms" cx="0" cy="-19" rx="8" ry="19" fill="' +
+              b +
+              '"/></g>';
+          return (
+            '<g class="sp">' +
+            s +
+            '<circle class="pt c" style="--d:1000ms" r="9" fill="#e0aa3e"/></g>'
+          );
+        }
+        function SV(p, sz) {
+          return (
+            '<svg class="fl" viewBox="-66 -66 132 132" width="' +
+            sz +
+            '" height="' +
+            sz +
+            '" aria-hidden="true">' +
+            F(p[0], p[1]) +
+            "</svg>"
+          );
+        }
+        function petal(rain) {
+          var e = document.createElement("i"),
+            s = 8 + Math.random() * 12;
+          e.className = "pe";
+          e.style.cssText =
+            "left:" +
+            Math.random() * 100 +
+            "vw;width:" +
+            s +
+            "px;height:" +
+            s * 1.3 +
+            "px;background:" +
+            PC[Math.floor(Math.random() * 5)] +
+            ";--sw:" +
+            (Math.random() * 160 - 80) +
+            "px;animation-duration:" +
+            (rain ? 2.6 + Math.random() * 2.4 : 11 + Math.random() * 10) +
+            "s;animation-delay:" +
+            (rain ? Math.random() : -Math.random() * 16) +
+            "s;animation-iteration-count:" +
+            (rain ? 1 : "infinite");
+          $("#pet").appendChild(e);
+          if (rain)
+            setTimeout(function () {
+              e.remove();
+            }, 6500);
+        }
+        function rain(n) {
+          if (calm) n = Math.min(n, 8);
+          for (var i = 0; i < n; i++) petal(true);
+        }
+        if (!calm) for (var i = 0; i < 9; i++) petal(false);
+
+        /* intro */
+        $("#ibud").innerHTML = SV(PAL[0], 140);
+        setTimeout(function () {
+          $("#ibud .fl").classList.add("b");
+        }, 700);
+        $("#go").onclick = function () {
+          $("#intro").classList.add("gone");
+          go(1);
+        };
+
+        /* steps */
+        var N = 6,
+          cur = 0,
+          max = 1,
+          fin = {},
+          ps = A(".pn"),
+          dots = $("#dots");
+        for (var i = 0; i < N; i++)
+          dots.appendChild(document.createElement("i"));
+        function paint() {
+          A("i", dots).forEach(function (d, i) {
+            d.className =
+              (i === cur - 1 ? "cur" : "") +
+              (i < max - 1 && i !== cur - 1 ? "ok" : "");
+          });
+        }
+        function go(n) {
+          ps.forEach(function (p, i) {
+            p.classList.toggle("act", i === n - 1);
+          });
+          cur = n;
+          max = Math.max(max, n);
+          paint();
+          $(".sheet").scrollTop = 0;
+        }
+        function unlock(n) {
+          if (fin[n]) return;
+          fin[n] = 1;
+          var b = $("#p" + n + " .nx");
+          b.disabled = false;
+          max = Math.max(max, n + 1);
+          paint();
+          rain(10);
+        }
+        A(".nx").forEach(function (b, i) {
+          b.onclick = function () {
+            go(i + 2);
+          };
+        });
+        A(".dots i").forEach(function (d, i) {
+          d.style.cursor = "pointer";
+          d.onclick = function () {
+            if (i + 1 <= max) go(i + 1);
+          };
+        });
+
+        /* branches */
+        var svg = $("#svg");
+        function branch(inp, key, log, n) {
+          inp.oninput = function () {
+            var v = +inp.value;
+            svg.style.setProperty("--p" + key, v / 100);
+            A(".nd[data-b=" + key + "]").forEach(function (g, i) {
+              var on = v >= +g.dataset.t;
+              g.classList.toggle("on", on);
+              $("li:nth-child(" + (i + 1) + ")", log).classList.toggle(
+                "on",
+                on,
+              );
+            });
+            if (v >= 100) unlock(n);
+          };
+        }
+        branch($("#ra"), "a", $("#la"), 1);
+        branch($("#rb"), "b", $("#lb"), 2);
+
+        /* merge */
+        $("#mf").innerHTML = F("#e8758f", "#ffc2d1");
+        var hp = 0,
+          hd = 0,
+          last = 0,
+          fired = 0,
+          ring = $("#ring");
+        function tick(t) {
+          var dt = Math.min(t - last, 60);
+          last = t;
+          hp += hd ? dt / 2200 : -dt / 800;
+          hp = fired ? 1 : Math.max(0, Math.min(1, hp));
+          ring.style.strokeDashoffset = 314 * (1 - hp);
+          if (hp >= 1 && !fired) {
+            fired = 1;
+            svg.classList.add("mrg");
+            svg.style.setProperty("--pt", 1);
+            $("#mf").classList.add("b");
+            rain(45);
+            $("#vs").classList.add("show");
+            unlock(3);
+          }
+          if (!fired && (hp > 0 || hd)) requestAnimationFrame(tick);
+        }
+        function hs() {
+          if (hd) return;
+          hd = 1;
+          last = performance.now();
+          requestAnimationFrame(tick);
+        }
+        var H = $("#hold");
+        H.onpointerdown = function (e) {
+          e.preventDefault();
+          hs();
+        };
+        ["pointerup", "pointerleave", "pointercancel"].forEach(function (n) {
+          H.addEventListener(n, function () {
+            hd = 0;
+          });
+        });
+        H.onkeydown = function (e) {
+          if (e.key === " " || e.key === "Enter") {
+            e.preventDefault();
+            hs();
+          }
+        };
+        H.onkeyup = function () {
+          hd = 0;
+        };
+        H.oncontextmenu = function (e) {
+          e.preventDefault();
+        };
+
+        /* buds */
+        A("#row .bd").forEach(function (b, i) {
+          b.querySelector("i").innerHTML = SV(PAL[i + 1], 84);
+          b.onclick = function () {
+            if (b.classList.contains("o")) return;
+            b.classList.add("o");
+            b.querySelector(".fl").classList.add("b");
+            if (A("#row .bd.o").length === 3)
+              setTimeout(function () {
+                unlock(4);
+              }, 900);
+          };
+        });
+
+        /* dua */
+        var dn = 0;
+        $("#dr").onclick = function () {
+          var t = $("#dt").value.trim();
+          if (!t) {
+            say("Write a dua first");
+            return;
+          }
+          var f = document.createElement("div");
+          f.className = "fy";
+          f.textContent = t;
+          $("#dz").appendChild(f);
+          setTimeout(function () {
+            f.remove();
+          }, 3000);
+          $("#dt").value = "";
+          dn++;
+          $("#dc").textContent =
+            "Ameen. " + dn + (dn === 1 ? " dua" : " duas") + " released.";
+          rain(10);
+          unlock(5);
+        };
+        $("#p5 .nx").disabled = false;
+
+        /* rsvp + share */
+        var gc = 1;
+        function inP() {
+          return $("input[name=r]:checked").value.indexOf("person") > -1;
+        }
+        function rsvp() {
+          $("#stp").style.opacity = inP() ? 1 : 0.3;
+          var n = $("#rn").value.trim() || "A guest",
+            m =
+              "Assalamu alaikum, this is " +
+              n +
+              ". " +
+              $("input[name=r]:checked").value +
+              (inP() ? ". Guests: " + gc : "") +
+              ". Barakallahu feekum.";
+          $("#rv").href =
+            "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(m);
+        }
+        $("#gm").onclick = function () {
+          if (gc > 1) gc--;
+          $("#gc").textContent = gc;
+          rsvp();
+        };
+        $("#gp").onclick = function () {
+          if (gc < 10) gc++;
+          $("#gc").textContent = gc;
+          rsvp();
+        };
+        A("input[name=r]").forEach(function (i) {
+          i.onchange = rsvp;
+        });
+        $("#rn").oninput = rsvp;
+        rsvp();
+        var url =
+          SITE_URL ||
+          (/^https?:/.test(location.protocol)
+            ? location.href.split("#")[0]
+            : "");
+        var text =
+          "You’re warmly invited to the nikkah of Nabia & Saad. Grow their story, one commit at a time, and keep us in your duas.";
+        $("#wa").href =
+          "https://wa.me/?text=" + encodeURIComponent(text + " " + url);
+        function copy() {
+          if (!url) {
+            say("Add your live link in SITE_URL first");
+            return;
+          }
+          function fb() {
+            try {
+              var a = document.createElement("textarea");
+              a.value = url;
+              a.style.cssText = "position:fixed;opacity:0";
+              document.body.appendChild(a);
+              a.select();
+              document.execCommand("copy");
+              a.remove();
+              say("Link copied");
+            } catch (e) {
+              say("Copy failed");
+            }
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText)
+            navigator.clipboard.writeText(url).then(function () {
+              say("Link copied");
+            }, fb);
+          else fb();
+        }
+        $("#cp").onclick = copy;
+        $("#sh").onclick = function () {
+          if (!url) {
+            say("Add your live link in SITE_URL first");
+            return;
+          }
+          if (navigator.share)
+            navigator
+              .share({ title: "Nabia & Saad", text: text, url: url })
+              .catch(function (e) {
+                if (e && e.name !== "AbortError") copy();
+              });
+          else copy();
+        };
+      })();
+    </script>
+  </body>
+</html>
